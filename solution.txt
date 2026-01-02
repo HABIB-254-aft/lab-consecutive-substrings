@@ -1,2 +1,27 @@
-Please add your pseudocode to this file
-And a written explanation of your solution
+PSEUDOCODE:
+1. Initialize an empty array to store results
+2. Loop through each starting position i in the string (from 0 to string.length - 1)
+3. For each starting position i, loop through each ending position j (from i + 1 to string.length)
+4. Extract the substring from position i to position j using substring(i, j)
+5. Add the substring to the results array
+6. Return the results array
+
+WRITTEN EXPLANATION:
+The solution uses nested loops to generate all consecutive substrings. The outer loop iterates through each possible starting position in the string. For each starting position, the inner loop generates all substrings that begin at that position by varying the ending position. This ensures we capture all consecutive substrings in the order they appear in the original string.
+
+For example, with the string 'abc':
+- Starting at position 0: 'a', 'ab', 'abc'
+- Starting at position 1: 'b', 'bc'
+- Starting at position 2: 'c'
+
+The result is ['a', 'ab', 'abc', 'b', 'bc', 'c'].
+
+Time Complexity: O(n³) where n is the length of the string
+- Outer loop: O(n)
+- Inner loop: O(n)
+- substring() operation: O(n)
+- Overall: O(n³)
+
+Space Complexity: O(n³) 
+- The result array contains O(n²) substrings (n + (n-1) + ... + 1 = n(n+1)/2)
+- Each substring can be up to length n, so total space is O(n³)
